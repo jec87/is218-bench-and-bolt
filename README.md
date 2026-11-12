@@ -1,95 +1,93 @@
 
 # Bench & Bolt — Repair Shop
 
-IS218-003 — Review 1: Plan — Group Customer Studio
+## IS218-003 — Group Customer Studio
 
-## Customer
+### Customer
 Bench & Bolt, a repair shop.
 
-## Project Goal
-Create a simple web application that helps
-staff record and track repair requests.
+### Project Goal
+Plan a simple web application to help
+repair shop employees manage repair requests.
 
-## Scope Comparison
+### Comparing Two Scopes
 
-### Option A: Walk-In Intake Queue
-Staff enter repair requests and manage
-their progress through a queue.
+Option A: Walk-In Intake Queue
+- Employees enter repair requests.
+- Staff track the status of each repair.
+- Staff can view active requests.
 
-### Option B: Self-Service Inquiry
-Customers submit inquiries online.
-Staff review inquiries before accepting them.
+Option B: Self-Service Inquiry
+- Customers submit inquiries online.
+- Staff review the inquiries.
+- Staff decide which requests to accept.
 
-## Proposed Decision
+### Proposed Decision
 Option A: Walk-In Intake Queue
 
-Reason: This option has a smaller workflow
-and is easier to test for our first project.
+We chose this as our starting proposal because
+it has a smaller workflow and is easier to test.
 
-Status: Awaiting customer-kit confirmation
-and agreement with my teammate.
+Final decision pending partner review and
+customer-kit confirmation.
 
-## Proposed User Stories
-1. As staff, I want to create a repair request.
-2. As staff, I want to see all open requests.
-3. As a technician, I want to update a status.
-4. As staff, I want to search for a request.
-5. As staff, I want to close a completed request.
+### Five Proposed User Stories
+1. As staff, I want to create repair requests.
+2. As staff, I want to view pending repairs.
+3. As a technician, I want to update statuses.
+4. As staff, I want to search for requests.
+5. As staff, I want to close finished requests.
 
-## Proposed Data
-- Request ID
+### Proposed Data
+- Repair ID
 - Customer name
 - Contact information
-- Item needing repair
-- Problem description
-- Request status
+- Item description
+- Repair problem
+- Status
 - Date submitted
 
-## Proposed Statuses
+### Proposed Status Rules
 New -> In Progress -> Ready -> Closed
 
-Status rules still need customer confirmation.
+Exact status rules need customer confirmation.
 
-## Proposed Workflow
-1. Customer arrives with an item.
-2. Staff create a repair request.
+### Proposed Workflow
+1. Customer brings in an item.
+2. Employee records the repair request.
 3. Technician reviews the request.
 4. Technician updates its status.
-5. Staff close the completed request.
+5. Employee closes the completed repair.
 
-## Proposed Technology
-- Python
-- Flask
+### Planned Technology
+- Python and Flask
 - SQLite
-- HTML/CSS
+- HTML and CSS
 - pytest
 
-## Team Responsibilities
+### Team Contributions
 
-Member 1 (me):
-- Initial scope comparison
-- Draft user stories
-- Draft data and workflow rules
-- Create project repository
+Member 1:
+- Create GitHub repository
+- Draft project scope
+- Draft user stories and workflow
 
-Member 2 (partner):
-- Review and revise project scope
-- Review user stories and workflow
-- Contribute design, development,
-  or QA planning
+Member 2:
+- Review the project plan
+- Suggest improvements
+- Help confirm final requirements
 
-Both members:
-- Cross-review each other's work
-- Record feedback in GitHub issues
-- Agree on the final plan
+Both:
+- Review each other's work
+- Document feedback on GitHub
 
-## Checks
-- Initial plan drafted
-- Customer-kit confirmation: Not done
-- Partner review: Not done
+### Checks
+- Initial plan: Drafted
+- Customer-kit verification: Not completed
+- Partner review: Not completed
 - Application tests: Not run
 
-## Next
-Confirm requirements with the customer kit,
-ask my partner to review the plan, and
-record our final decisions.
+### Next Steps
+- Confirm customer requirements
+- Review the plan with my partner
+- Record feedback and final decisions

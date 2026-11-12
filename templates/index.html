@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bench & Bolt | Repair Intake</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h1 { color: #254b3b; }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #254b3b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bench & Bolt</h1>
+        <p>Staff Repair Inquiry Form</p>
+
+        <form method="POST" action="/submit">
+            <label for="rider">Rider Label</label>
+            <input id="rider" name="rider" required>
+
+            <label for="bike_type">Bike Type</label>
+            <select id="bike_type" name="bike_type" required>
+                <option value="city">City</option>
+                <option value="road">Road</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="problem">Repair Problem</label>
+            <textarea id="problem" name="problem"
+                      minlength="1" maxlength="240"
+                      required></textarea>
+
+            <label for="preferred_day">Preferred Day (Optional)</label>
+            <input id="preferred_day" name="preferred_day"
+                   maxlength="40">
+
+            <button type="submit">Submit Repair Inquiry</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bench & Bolt | Repair Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h1 { color: #254b3b; }
+
+        .detail {
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        a {
+            color: #254b3b;
+        }
+
+        button {
+            padding: 12px 18px;
+            margin: 8px 8px 0 0;
+            border: none;
+            border-radius: 6px;
+            background: #254b3b;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/queue">← Back to Repair Queue</a>
+
+        <h1>Repair Inquiry #{{ repair["id"] }}</h1>
+
+        <div class="detail">
+            <strong>Rider:</strong> {{ repair["rider"] }}
+        </div>
+
+        <div class="detail">
+            <strong>Bike Type:</strong> {{ repair["bike_type"] }}
+        </div>
+
+        <div class="detail">
+            <strong>Problem:</strong> {{ repair["problem"] }}
+        </div>
+
+        <div class="detail">
+            <strong>Preferred Day:</strong>
+            {{ repair["preferred_day"] or "Not specified" }}
+        </div>
+
+        <div class="detail">
+            <strong>Status:</strong> {{ repair["status"] }}
+        </div>
+
+        <p>This repair inquiry is not an appointment confirmation.</p>
+
+        {% if repair["status"] == "Pending review" %}
+            <form method="POST" action="/repair/{{ repair['id'] }}/status">
+                <button type="submit" name="status" value="Accepted">
+                    Accept
+                </button>
+                <button type="submit" name="status" value="Declined">
+                    Decline
+                </button>
+            </form>
+        {% elif repair["status"] == "Accepted" %}
+            <form method="POST" action="/repair/{{ repair['id'] }}/status">
+                <button type="submit" name="status" value="Completed">
+                    Mark Completed
+                </button>
+            </form>
+        {% else %}
+            <p>This inquiry has reached a final status.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

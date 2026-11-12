@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bench & Bolt | Repair Queue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h1 { color: #254b3b; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #254b3b;
+            color: white;
+        }
+
+        a { color: #254b3b; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bench & Bolt — Repair Queue</h1>
+        <p>All saved repair inquiries</p>
+
+        <a href="/">Create New Inquiry</a>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Rider</th>
+                    <th>Bike Type</th>
+                    <th>Problem</th>
+                    <th>Preferred Day</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for repair in repairs %}
+                <tr>
+                    <td>
+    <a href="{{ url_for('repair_detail', repair_id=repair['id']) }}">
+        #{{ repair["id"] }}
+    </a>
+</td>
+                    <td>{{ repair["rider"] }}</td>
+                    <td>{{ repair["bike_type"] }}</td>
+                    <td>{{ repair["problem"] }}</td>
+                    <td>{{ repair["preferred_day"] or "—" }}</td>
+                    <td>{{ repair["status"] }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6">No repair inquiries yet.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
